@@ -1,2 +1,5 @@
 [project]
 name = platopes
+
+[packages]
+lektor-webpack-support = 0.6.0

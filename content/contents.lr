@@ -1,6 +1,5 @@
 title: Welcome to platopes!
 ---
-body:
-
-This is a basic demo website that shows how to use Lektor for a basic
-website with some pages and a blog.
+body: Platopes is the online hub of Kevin Topel's philosophical ramblings and other informal lighthearted musings.
+---
+test_field: test

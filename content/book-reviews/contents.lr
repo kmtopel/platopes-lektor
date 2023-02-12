@@ -1,0 +1,9 @@
+_model: page
+---
+title: Book Reviews
+---
+_discoverable: yes
+---
+_template: book-reviews.html
+---
+body: Testing this out

@@ -1,29 +1,35 @@
 <!doctype html>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<link rel="stylesheet" href="{{ '/static/gen/styles.css'|url }}">
 <title>{% block title %}Welcome{% endblock %} — platopes</title>
 <body>
   <header>
-    <h1>platopes</h1>
+    <h1><a href="/">platopes</a></h1>
     <nav>
       <ul class="nav navbar-nav">
-        <li{% if this._path == '/' %} class="active"{% endif
-          %}><a href="{{ '/'|url }}">Welcome</a></li>
         {% for href, title in [
           ['/blog', 'Blog'],
-          ['/projects', 'Projects'],
-          ['/about', 'About']
-        ] %}
-          <li{% if this.is_child_of(href) %} class="active"{% endif
-            %}><a href="{{ href|url }}">{{ title }}</a></li>
+          ['/book-reviews', 'Book Reviews'],
+          ] %}
+          <li {% if this.is_child_of(href) %} class="active"{% endif%}>
+            <a href="{{ href|url }}">{{ title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
   </header>
   <div class="page">
     {% block body %}{% endblock %}
+    <!-- <ul class="sidenav">
+      {% set pages = site.query('./blog', alt=alt).all() %}
+      {% for page in pages %} 
+        <li>{{page.title}}</li>
+      {% endfor %}
+    </ul> -->
   </div>
   <footer>
-    &copy; Copyright 2022 by Kevin Topel.
+    <p>&copy; Copyright <span id="year"></span> by Kevin Topel.</p>  
   </footer>
+  <script>
+    document.getElementById('year').innerHTML = new Date().getFullYear();
+  </script>
 </body>
